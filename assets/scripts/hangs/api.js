@@ -1,15 +1,11 @@
-
 'use strict'
 
-
 // require necessary files
-
 
 const config = require('../config.js')
 const store = require('../store.js')
 
-
-const newHang = function(data) {
+const newHang = function (data) {
   console.log(data)
   return $.ajax({
     url: config.apiUrl + '/hangs',

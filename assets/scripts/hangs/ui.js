@@ -1,15 +1,18 @@
-
 'use strict'
+
 const store = require('../store')
+const showHangsTemplate = require('../templates/hang-listing.handlebars')
 
 const onNewHangSuccess = function (data) {
   $('#message').show(800)
   $('#message').text('SUCCESS')
 }
 
-
 const showHangsSuccess = function (data) {
   console.log('showHangsSuccess has been called')
+  const showHangsHtml = showHangsTemplate({ hangs: data.hangs })
+  $('.content').html(showHangsHtml)
+
   if (data.hangs.length === 0) {
     console.log('no events yet')
   } else {

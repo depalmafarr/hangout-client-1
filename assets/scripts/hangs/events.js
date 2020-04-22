@@ -1,9 +1,8 @@
 'use strict'
 
-
 const api = require('./api.js')
 const ui = require('./ui.js')
-const getFormFields= require('../../../lib/get-form-fields')
+const getFormFields = require('../../../lib/get-form-fields')
 
 // -------- create onAddHang function -----------
 const onNewHang = function (event) {
@@ -27,8 +26,15 @@ const onShowHangs = function (event) {
     .catch(ui.showHangsFailure)
 }
 
-module.exports = {
-  onShowHangs, 
-  onNewHang
+const addHandlers = () => {
+  $('#show-hangs').on('submit', onShowHangs)
+  // $('#clearMoviesButton').on('click', onClearMovies)
+  // $('.content').on('click', '.btn-danger', onDeleteHang)
+  // $('.content').on('submit', '#updateButton', onUpdateHang)
+}
 
+module.exports = {
+  onShowHangs,
+  onNewHang,
+  addHandlers
 }
