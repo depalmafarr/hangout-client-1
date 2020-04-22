@@ -16,8 +16,10 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
 
   // for showing all hangs
+
   $('#show-hangs').on('click', hangEvents.onShowHangs)
 
+
   // for creating new hangs
-  $('#').on('submit', hangEvents.onNewHang)
+  $('#addHang').on('submit', hangEvents.onNewHang)
 })

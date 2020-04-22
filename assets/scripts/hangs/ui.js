@@ -1,5 +1,11 @@
 
-// require
+'use strict'
+const store = require('../store')
+
+const onNewHangSuccess = function (data) {
+  $('#message').show()
+  $('#message').text('SUCCESS 🌵')
+
 
 const showHangsSuccess = function (data) {
   console.log('showHangsSuccess has been called')
@@ -16,5 +22,6 @@ const showHangsFailure = function (data) {
 
 module.exports = {
   showHangsSuccess,
-  showHangsFailure
+  showHangsFailure,
+  onNewHangSuccess
 }
