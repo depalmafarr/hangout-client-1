@@ -13,6 +13,8 @@
     </head>
     <body>
       <h1>FBRD Hangouts</h1>
+      <!-- MAILMAN MESSAGE CENTER -->
+    <p id="message" class="mailman"></p>
       <nav class="navbar navbar-inverse justify-content-start align-items-center">
         <div class="dropdown sign-up">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -79,5 +81,21 @@
             </fieldset>
           </form>
       </nav>
+
+      <!-- FORM TO ADD HANG -->
+      <form id="addHang" class="addHang">
+        <fieldset>
+          <legend> Add Hang </legend>
+          <input type="text" name="hang[title]" placeholder="Hang Name">
+          <input type="date" name="hang[date]" placeholder="Hang Date">
+          <input type="text" name="hang[time]" placeholder="Hang Time">
+          <input type="text" name="hang[location]" placeholder="Location">
+          <input type="text" name="hang[description]" placeholder="Description">
+        <input type="submit" class="btn-gradient green normal" value="Add Hang!">
+        </fieldset>
+
+        <!-- <button id="addHangButton" class="btn-gradient green normal"> Add Hang
+        </button> -->
+      </form>
     </body>
 </html>
