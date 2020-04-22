@@ -3,8 +3,9 @@
 const store = require('../store')
 
 const onNewHangSuccess = function (data) {
-  $('#message').show()
-  $('#message').text('SUCCESS 🌵')
+  $('#message').show(800)
+  $('#message').text('SUCCESS')
+}
 
 
 const showHangsSuccess = function (data) {
