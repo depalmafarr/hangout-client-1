@@ -31,24 +31,38 @@ const onDeleteHang = function (event) {
   const id = $(event.target).data('id')
   console.log("WHO CARES!", id)
   api.deleteHang(id)
-    .then(function() {
+    .then(function () {
       onShowHangs(event)
     })
     .catch(ui.onDeleteHangfailure)
 }
 
-
+const onUpdateHang = function (event) {
+  event.preventDefault()
+  // const data = store.day
+  const id = $(event.target).data('id')
+  const data = getFormFields(event.target)
+  console.log('in events.js, data is ', data)
+  console.log('in events.js, id is ', id)
+  api.updateHang(data, id)
+    .then(function () {
+      onShowHangs(event)
+    },
+    ui.updateHangSuccess)
+    .catch(ui.updateHangFailure)
+}
 
 const addHandlers = () => {
   $('#show-hangs').on('submit', onShowHangs)
-  // $('#clearMoviesButton').on('click', onClearMovies)
+  // $('#clearHangsButton').on('click', onClearMovies)
   $('.content').on('click', '.btn-danger', onDeleteHang)
-  // $('.content').on('submit', '#updateButton', onUpdateHang)
+  $('.content').on('submit', '#updateButton', onUpdateHang)
 }
 
 module.exports = {
   onShowHangs,
   onNewHang,
   addHandlers,
-  onDeleteHang
+  onDeleteHang,
+  onUpdateHang
 }

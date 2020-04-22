@@ -29,10 +29,14 @@ const onDeleteHangfailure = function () {
   $('#message').text('Failure to Delete Hang')
 }
 
+const onUpdateHangSuccess = function () {
+  console.log('onUpdateSuccess has been called')
+}
 
 module.exports = {
   showHangsSuccess,
   showHangsFailure,
   onNewHangSuccess,
-  onDeleteHangfailure
+  onDeleteHangfailure,
+  onUpdateHangSuccess
 }

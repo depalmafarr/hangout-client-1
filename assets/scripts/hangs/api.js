@@ -24,7 +24,7 @@ const showHangs = function () {
   })
 }
 
-const deleteHang = function(id) {
+const deleteHang = function (id) {
   console.log(id)
   return $.ajax({
     url: config.apiUrl + '/hangs/' + id,
@@ -33,6 +33,18 @@ const deleteHang = function(id) {
       Authorization: 'Token token=' + store.user.token
     },
     data: id
+  })
+}
+
+const updateHang = function (data, id) {
+  console.log('in api.js: updateHang function has been called, id is: ', id)
+  return $.ajax({
+    url: config.apiUrl + '/hangs/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
   })
 }
 
@@ -50,5 +62,6 @@ const deleteHang = function(id) {
 module.exports = {
   showHangs,
   newHang,
-  deleteHang
+  deleteHang,
+  updateHang
 }
