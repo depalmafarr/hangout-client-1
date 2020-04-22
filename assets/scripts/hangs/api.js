@@ -24,8 +24,31 @@ const showHangs = function () {
   })
 }
 
+const deleteHang = function(id) {
+  console.log(id)
+  return $.ajax({
+    url: config.apiUrl + '/hangs/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: id
+  })
+}
+
+// const deleteWord = function(id) {
+//   return $.ajax({
+//     url: config.apiUrl + '/vocabs/' + id,
+//     method: 'DELETE',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: id
+//   })
+// }
+
 module.exports = {
   showHangs,
-  newHang
-
+  newHang,
+  deleteHang
 }

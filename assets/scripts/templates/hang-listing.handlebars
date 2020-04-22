@@ -1,5 +1,5 @@
 {{#each hangs as |hang|}}
-  <section data-id="{{hang.id}}">
+  <section data-id="{{hang._id}}">
     <h6>Title:</h6>
     <h3>
       {{hang.title}}
@@ -57,8 +57,8 @@
       </fieldset>
     </form>
 
-    <button data-id="{{hang.id}}" class="btn btn-danger">Remove Hang!</button>
-    <button data-id="{{hang.id}}" class="btn">RSVP</button>
+    <button data-id="{{hang._id}}" class="btn btn-danger">Delete Hang!</button>
+    <button data-id="{{hang._id}}" class="btn">RSVP</button>
 
   </section>
 
