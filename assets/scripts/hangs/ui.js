@@ -24,6 +24,16 @@ const showHangsFailure = function (data) {
   console.log('showHangsFailure has been called')
 }
 
+const onShowMyHangsSuccess = function (data) {
+  console.log('ON SHOW MY SUCCESS has been called AND IT WORKED')
+  const showHangsHtml = showHangsTemplate({ hangs: data.hangs })
+  $('.content').html(showHangsHtml)
+}
+
+const onShowMyHangsFailure = function (data) {
+  console.log('ON SHOW MY HANGS FAILED, BRO')
+}
+
 const onDeleteHangfailure = function () {
   $('#message').show(800)
   $('#message').text('Failure to Delete Hang')
@@ -38,5 +48,7 @@ module.exports = {
   showHangsFailure,
   onNewHangSuccess,
   onDeleteHangfailure,
-  onUpdateHangSuccess
+  onUpdateHangSuccess,
+  onShowMyHangsSuccess,
+  onShowMyHangsFailure
 }

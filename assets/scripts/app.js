@@ -18,6 +18,9 @@ $(() => {
   // for showing all hangs
   $('#show-hangs').on('click', hangEvents.onShowHangs)
 
+  // for showing "my hangs"
+  $('#show-my-hangs').on('click', hangEvents.onShowMyHangs)
+
   // for creating new hangs
   $('#addHang').on('submit', hangEvents.onNewHang)
 

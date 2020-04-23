@@ -26,6 +26,14 @@ const onShowHangs = function (event) {
     .catch(ui.showHangsFailure)
 }
 
+const onShowMyHangs = function (event) {
+  event.preventDefault()
+  // console.log('In events.js: onShowDays function has been called and ran')
+  api.showMyHangs()
+    .then(ui.onShowMyHangsSuccess)
+    .catch(ui.onShowMyHangsFailure)
+}
+
 const onDeleteHang = function (event) {
   console.log(event.target)
   const id = $(event.target).data('id')
@@ -64,5 +72,6 @@ module.exports = {
   onNewHang,
   addHandlers,
   onDeleteHang,
-  onUpdateHang
+  onUpdateHang,
+  onShowMyHangs
 }
