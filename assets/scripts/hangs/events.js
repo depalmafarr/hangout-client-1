@@ -37,7 +37,7 @@ const onShowMyHangs = function (event) {
 const onDeleteHang = function (event) {
   console.log(event.target)
   const id = $(event.target).data('id')
-  console.log("WHO CARES!", id)
+  // console.log("WHO CARES!", id)
   api.deleteHang(id)
     .then(function () {
       onShowHangs(event)

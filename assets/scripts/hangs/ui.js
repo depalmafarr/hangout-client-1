@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const showHangsTemplate = require('../templates/hang-listing.handlebars')
+const showMyHangsTemplate = require('../templates/my-hang-listing.handlebars')
 
 const onNewHangSuccess = function (data) {
   $('#message').show(800)
@@ -25,22 +26,24 @@ const showHangsFailure = function (data) {
 }
 
 const onShowMyHangsSuccess = function (data) {
-  console.log('ON SHOW MY SUCCESS has been called AND IT WORKED')
-  console.log('data.hangs.owner is: ', data.hangs)
-  // loop through each event's owner and if it matches the current signed in user, display it
+  // array of our hangs
   const hangsArray = data.hangs
-  console.log('hangsArray is ', hangsArray)
-  // how do we make an array containing the value of
-  const myHangs = hangsArray.filter(data.hangs)
-  console.log('myHangs is: ', myHangs)
-  // if store.user === data.hangs.owner
-  // return
-  // make new array of matching hangs
-  // console.log('myHangs is: ', myHangs)
-  // filteredHangs = matched hangs
-  // pass filteredHangs through showHangsTemplate
-  const showHangsHtml = showHangsTemplate({ hangs: data.hangs })
-  $('.content').html(showHangsHtml)
+
+  // loo through the array of hangs
+  hangsArray.forEach((hang) => {
+    console.log('store.user.id is', store.user._id)
+    // check if current user owns it or not
+    // log hang.owner and sotre.user.id to make sure these are the right values to compare
+    if (hang.owner === store.user._id) {
+      // if the current user owns it then add currentUserOwns true
+      hang.currentUserOwns = true
+    } else {
+      // else add currentUserOwns false
+      hang.currentUserOwns = false
+    }
+  })
+  const showMyHangsHtml = showMyHangsTemplate({ hangs: data.hangs })
+  $('.content').html(showMyHangsHtml)
 }
 
 const onShowMyHangsFailure = function (data) {

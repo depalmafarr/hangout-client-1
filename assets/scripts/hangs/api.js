@@ -30,7 +30,7 @@ const showMyHangs = function () {
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
+    }
   })
 }
 

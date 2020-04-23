@@ -1,0 +1,65 @@
+{{#each hangs as |hang|}}
+{{#if hang.currentUserOwns}}
+  <section data-id="{{hang._id}}">
+    <h6>Title:</h6>
+    <h3>
+      {{hang.title}}
+    </h3>
+
+    <hr>
+
+    <h6>Date:</h6>
+    <h3>
+      {{hang.date}}
+    </h3>
+
+    <hr>
+
+    <h6>Time:</h6>
+    <h3>
+      {{hang.time}}
+    </h3>
+
+    <hr>
+
+    <h6>Location:</h6>
+    <h3>
+      {{hang.location}}
+    </h3>
+
+    <hr>
+
+    <h6>Description:</h6>
+    <h3>
+      {{hang.description}}
+    </h3>
+
+    <hr>
+
+    <!-- <h6>Rating:</h6>
+    <h3>
+      {{#if movie.rating}}
+        {{movie.rating}}
+      {{else}}
+        Not Rated
+      {{/if}}
+    </h3> -->
+    <hr>
+    <form id="updateButton" class="" data-id="{{hang._id}}">
+      <h3>Update Hang</h3>
+      <fieldset>
+        <input type="text" name="hang[title]" value="{{hang.title}}" placeholder="Title">
+        <input type="date" name="hang[date]" value="{{hang.date}}">
+        <input type="text" name="hang[time]" value="{{hang.time}}" placeholder="4:00 PM">
+        <input type="text" name="hang[location]" value="{{hang.location}}" placeholder="Boston, MA">
+        <input type="text" name="hang[description]" value="{{hang.description}}" placeholder="What is happening at this event">
+        <input type="submit" value="Edit hang">
+      </fieldset>
+    </form>
+
+    <button data-id="{{hang._id}}" class="btn btn-danger">Delete Hang!</button>
+    <button data-id="{{hang._id}}" class="btn">RSVP</button>
+
+  </section>
+  {{/if}}
+{{/each}}
