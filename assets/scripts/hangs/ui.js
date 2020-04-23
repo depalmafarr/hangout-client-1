@@ -48,14 +48,35 @@ const onShowMyHangsSuccess = function (data) {
 }
 // ---------- RSVP -------------
 const rsvpHangSuccess = function (data) {
-data.hang.rsvp.push(store.user._id)
-console.log('DATA From rsvpHangSuccess', data.hang.rsvp)
+  data.hang.rsvp.push(store.user._id)
+  console.log('DATA From rsvpHangSuccess', data.hang.rsvp)
+  console.log('heres the whole thing: ', data)
 // console.log('USER', store.user._id)
-
 }
 
 const onShowMyHangsFailure = function (data) {
   console.log('ON SHOW MY HANGS FAILED, BRO')
+}
+
+const showRsvpSuccess = function (data) {
+  console.log('in ui.js, showRsvpSuccess data is ', data)
+  const hangsArray = data.hangs
+
+  // loop through the array of hangs
+  hangsArray.forEach((hang) => {
+    console.log('hey, we are in a forEach ... hang', hang.rsvp)
+    const rsvpArray = hang.rsvp
+    // console.log('hang.rsvp is ', hang.rsvp)
+    // run through each rsvp array
+    // if the user ID is in the rsvp array, then show it to the user (handlebars)
+    rsvpArray.forEach((rsvp) => {
+      console.log('This is the loop inside the loop ', rsvp)
+    })
+  })
+}
+
+const showRsvpFailure = function (data) {
+  console.log('in ui.js, data is showRsvpFailure ', data)
 }
 
 const onDeleteHangfailure = function () {
@@ -75,5 +96,7 @@ module.exports = {
   onUpdateHangSuccess,
   onShowMyHangsSuccess,
   onShowMyHangsFailure,
-  rsvpHangSuccess
+  rsvpHangSuccess,
+  showRsvpSuccess,
+  showRsvpFailure
 }

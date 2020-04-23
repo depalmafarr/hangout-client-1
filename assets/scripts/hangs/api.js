@@ -33,17 +33,30 @@ const showMyHangs = function () {
     }
   })
 }
-const rsvpHang = function (id) {
+
+const rsvpHang = function (data, id) {
+  console.log('in rsvpHang, data is ', data)
+  console.log('in rsvpHang, id is ', id)
+  console.log('in rsvpHang, store.user._id is ', store.user._id)
+
   return $.ajax({
     url: config.apiUrl + '/hangs/' + id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-      data: id
+    method: 'PATCH',
+    data: {
+      'rsvp': []
+    }
   })
 }
 
+const showRsvp = function () {
+  return $.ajax({
+    url: config.apiUrl + '/hangs',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 const deleteHang = function (id) {
   console.log(id)
@@ -86,5 +99,6 @@ module.exports = {
   deleteHang,
   updateHang,
   showMyHangs,
-rsvpHang
+  rsvpHang,
+  showRsvp
 }

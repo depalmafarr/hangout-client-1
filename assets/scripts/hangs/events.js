@@ -63,16 +63,23 @@ const onUpdateHang = function (event) {
 const onRsvp = function (event) {
   event.preventDefault()
   // const data = store.day
+  const data = $(event.target).data()
+  console.log(data)
   const id = $(event.target).data('id')
-  const data = getFormFields(event.target)
   console.log('ID is', id)
-    console.log('onRSVP data is', data)
-  api.rsvpHang(id)
+  // summon get function to get all the data
+  console.log('onRSVP data is', data)
+  api.rsvpHang(data, id)
     .then(ui.rsvpHangSuccess)
     .catch(ui.rsvpHangFailure)
-
 }
 
+const onShowRsvp = function (event) {
+  event.preventDefault()
+  api.showRsvp()
+    .then(ui.showRsvpSuccess)
+    .catch(ui.showRsvpFailure)
+}
 
 const addHandlers = () => {
   $('#show-hangs').on('submit', onShowHangs)
@@ -80,6 +87,7 @@ const addHandlers = () => {
   $('.content').on('click', '.btn-danger', onDeleteHang)
   $('.content').on('click', '.btn-rsvp', onRsvp)
   $('.content').on('submit', '#updateButton', onUpdateHang)
+  $('#show-my-rsvp').on('click', onShowRsvp)
 }
 
 module.exports = {
@@ -89,5 +97,6 @@ module.exports = {
   onDeleteHang,
   onUpdateHang,
   onShowMyHangs,
-  onRsvp
+  onRsvp,
+  onShowRsvp
 }
