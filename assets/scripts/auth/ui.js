@@ -31,7 +31,7 @@ const onSignInSucess = function (data) {
   // $('#message').text('')
   // $('#sign-in').trigger('reset')
   console.log('onSignInSucess data is: ', data)
-  store.user = data.user
+  store.user = data.user._id
 }
 
 const onSignInFailure = function () {
