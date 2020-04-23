@@ -32,6 +32,8 @@ const onSignInSucess = function (data) {
   // $('#sign-in').trigger('reset')
   console.log('onSignInSucess data is: ', data)
   store.user = data.user
+
+
 }
 
 const onSignInFailure = function () {

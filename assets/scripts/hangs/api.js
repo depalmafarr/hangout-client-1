@@ -33,6 +33,17 @@ const showMyHangs = function () {
     }
   })
 }
+const rsvpHang = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/hangs/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+      data: id
+  })
+}
+
 
 const deleteHang = function (id) {
   console.log(id)
@@ -74,5 +85,6 @@ module.exports = {
   newHang,
   deleteHang,
   updateHang,
-  showMyHangs
+  showMyHangs,
+rsvpHang
 }

@@ -7,6 +7,7 @@ const showMyHangsTemplate = require('../templates/my-hang-listing.handlebars')
 const onNewHangSuccess = function (data) {
   $('#message').show(800)
   $('#message').text('SUCCESS')
+  console.log('this is da data', data)
 }
 
 const showHangsSuccess = function (data) {
@@ -45,6 +46,13 @@ const onShowMyHangsSuccess = function (data) {
   const showMyHangsHtml = showMyHangsTemplate({ hangs: data.hangs })
   $('.content').html(showMyHangsHtml)
 }
+// ---------- RSVP -------------
+const rsvpHangSuccess = function (data) {
+data.hang.rsvp.push(store.user._id)
+console.log('DATA From rsvpHangSuccess', data.hang.rsvp)
+// console.log('USER', store.user._id)
+
+}
 
 const onShowMyHangsFailure = function (data) {
   console.log('ON SHOW MY HANGS FAILED, BRO')
@@ -66,5 +74,6 @@ module.exports = {
   onDeleteHangfailure,
   onUpdateHangSuccess,
   onShowMyHangsSuccess,
-  onShowMyHangsFailure
+  onShowMyHangsFailure,
+  rsvpHangSuccess
 }
