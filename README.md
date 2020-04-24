@@ -4,51 +4,44 @@
 
 # Hangout App Client dev process
 
-Started by making sure the app is connected to the api so that users can create accounts and add movies in a user friendly way. When I hit issues I used research and other classmates to get through building the front end. There are many more styling choices that must be made in the future for this site.
+We created an app that allows users to create events called 'Hangs'. As a signed in user you can set when, where, and what the event is.You can also RSVP (future update) to events and keep track of which events you are going to.
 
 ## Deployed sites
 
-Front end (https://depalmafarr.github.io/project2-movies-client/).
-Back end (https://movie-logs-09.herokuapp.com/).
+Front end (https://fbrd2.github.io/hangout-client/).
+Back end (https://shrouded-refuge-81940.herokuapp.com/).
 
 ## Getting Started
 
-For can be made and grunt served onto your server from the link to the project here (https://github.com/depalmafarr/project2-movies-client)
+Fork can be made and grunt served onto your server from the link to the project here (https://github.com/FBRD2/hangout-client)
 
 ### Future fixes/issues
 
-- Favorites list will be added at a later date
-- List search (hopeful addition)
+- Need a RSVP
+- Change order events appear in, no RSVP to past events
 - Styling changes
 
 ### Wireframes, User stories, and ERD
 
-Wireframe - https://drive.google.com/file/d/1e5POB4pFPNH6a1_TzJJffAJ353U8OeTZ/view?usp=sharing
+Wireframe - https://imgur.com/B08l7kl, https://imgur.com/rRXsqHf
 
-ERD - https://drive.google.com/file/d/1JeGhDE_QwEcjonLyovJZ3Hom2KoRX4wH/view?usp=sharing
+ERD - https://imgur.com/4UGLlWv
 
 * User stories -
-  - As a new user, I want to be able to track movies I have watched
-
-  - As a user, see a list of movies seen and want to be seen.
-
-  - As a user, I want to see how many times I have seen a movie and if I liked it.
-
-  - As a new user, I want to be able to create an account to keep track of my watched movies.
-
-  - As a returning user, I want to be able to see how many movies I have seen (this year?).
-
-  - As a returning user, I want to be able to rate movies.
-
-  - As a returning user, I want to be able to log out so that other people can't see my stats.
-
-  - As a returning user, I want to be able to sign back in so I can be back on my account to check my movies.
-
-  - As a user, I want to see the table showing all of my movies seen.
+- As an unregistered user, I would like to sign up with email and password.
+- As a registered user, I would like to sign in with email and password.
+- As a signed in user, I would like to change password.
+- As a signed in user, I would like to sign out.
+- As an unregistered user, I would like to see all events.
+- As a signed in user, I would like to RSVP to an event.
+- As a signed in user, I would like to create my own event.
+- As a signed in user, I would like to update my own events.
+- As a signed in user, I would like to delete my own events.
 
 ## Built With
 
-* [Ruby on Rails] Ruby on Rails for server setup
+* [Express API] Express for server setup
+* [MongoDB] Used to keep database
 * [HTML]
 * [SCSS](https://sass-lang.com/) - Style sheets
 * [JavaScript] - Used to create front end lists
@@ -62,16 +55,18 @@ ERD - https://drive.google.com/file/d/1JeGhDE_QwEcjonLyovJZ3Hom2KoRX4wH/view?usp
 
 ## Backend
 
-For the back end of this project, see (https://github.com/depalmafarr/project2-movies-api).
-
+For the back end of this project, see (https://github.com/FBRD2/hangout-api).
 
 ## Versioning
 
-We use [github] for versioning. For the versions available, see the (https://github.com/depalmafarr/project2-movies-client).
+We use [github] for versioning. For the versions available, see the (https://github.com/FBRD2/hangout-client).
 
 ## Authors
 
 * **Brandon DePalmaFarr** - *Initial work* - [DePalmaFarr](https://github.com/DePalmaFarr)
+* **Dan Powers** - *Initial work* - [danpowers24](danpowers24)
+* **Trey Hilson** - *Initial work* - [TreyHilson](https://github.com/TreyHilson)
+* **Ross Northrup** - *Initial work* - [northross](https://github.com/northross)
 
 ## Acknowledgments
 
