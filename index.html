@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Hangouts</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,101 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>FBRD Hangouts</h1>
+      <!-- MAILMAN MESSAGE CENTER -->
+    <p id="message" class="mailman"></p>
+      <nav class="navbar navbar-inverse justify-content-start align-items-center">
+        <div class="dropdown sign-up">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign up
+          </button>
+          <p id="message"></p>
+          <form id="sign-up" class="dropdown-menu p-4">
+            <div class="form-group">
+              <label for="dropdownFormUsername">Username</label>
+              <input type="text" class="form-control" name="credentials[email]" placeholder="example@email.com">
+            </div>
+            <div class="form-group">
+              <label for="dropdownFormPassword">Password</label>
+              <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="dropdownFormPassword">Confirm Password</label>
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            </div>
+            <button type="submit" class="btn btn-primary" value="Sign up">Sign up</button>
+          </form>
+        </div>
+
+        <div class="dropdown sign-in">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign in
+          </button>
+          <p id="signInMessage"></p>
+          <form id="sign-in" class="dropdown-menu p-4">
+            <div class="form-group">
+              <label for="dropdownFormUsername">Username</label>
+              <input type="text" class="form-control" id="dropdownFormUsername" name="credentials[email]" placeholder="username">
+            </div>
+            <div class="form-group">
+              <label for="dropdownFormPassword">Password</label>
+              <input type="password" class="form-control" name="credentials[password]" placeholder="password">
+            </div>
+            <button type="submit" class="btn btn-primary" value="Sign in">Sign in</button>
+          </form>
+        </div>
+
+        <div class="dropdown change-password">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Change Password
+          </button>
+          <p id="passwordChangeMessage"></p>
+          <form id="change-password" class="dropdown-menu p-4">
+            <div class="form-group">
+              <label for="dropdownFormPassword">Password</label>
+              <input type="text" class="form-control" name="passwords[old]" placeholder="Old password">
+            </div>
+            <div class="form-group">
+              <label for="dropdownFormPassword">Password</label>
+              <input type="password" class="form-control" name="passwords[new]" placeholder="New password">
+            </div>
+            <button type="submit" class="btn btn-primary" value="Change Password">Change Password</button>
+          </form>
+        </div>
+
+        <p id="signOutMessage"></p>
+        <form id="sign-out" class="border justify-content-end">
+            <fieldset>
+              <input type="submit" value="Sign out">
+            </fieldset>
+          </form>
+      </nav>
+
+
+      <!-- FORM TO ADD HANG -->
+      <form id="addHang" class="addHang">
+        <fieldset>
+          <legend> Add Hang </legend>
+          <input type="text" name="hang[title]" placeholder="Hang Name">
+          <input type="date" name="hang[date]" placeholder="Hang Date">
+          <input type="text" name="hang[time]" placeholder="Hang Time">
+          <input type="text" name="hang[location]" placeholder="Location">
+          <input type="text" name="hang[description]" placeholder="Description">
+          <input type="submit" class="btn-gradient green normal" value="Add Hang!">
+        </fieldset>
+
+        <!-- <button id="addHangButton" class="btn-gradient green normal"> Add Hang
+        </button> -->
+      </form>
+
+      <button id="show-hangs" type="button" class="btn btn-primary">Show All Hangs</button>
+
+      <button id="show-my-hangs" type="button" class="btn btn-primary">Show My Hangs</button>
+      <main>
+
+          <!-- add hangs here -->
+        <div id="content" class="content"></div>
+      </main>
+
     </body>
 </html>
