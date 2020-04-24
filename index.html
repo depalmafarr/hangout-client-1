@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Hangouts</title>
+      <title>LET'S HANG!</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -11,10 +11,15 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Quattrocento:wght@700&display=swap');
+    </style>
+
     <body>
-      <h1>FBRD Hangouts</h1>
+      <h1 class ="hang_title">Let's Hang!</h1>
       <!-- MAILMAN MESSAGE CENTER -->
     <p id="message" class="mailman"></p>
+
       <nav class="navbar navbar-inverse justify-content-start align-items-center">
         <div class="dropdown sign-up">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,7 +39,7 @@
               <label for="dropdownFormPassword">Confirm Password</label>
               <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
             </div>
-            <button type="submit" class="btn btn-primary" value="Sign up">Sign up</button>
+            <button type="submit" class="btn btn-sign" value="Sign up">Sign up</button>
           </form>
         </div>
 
@@ -52,7 +57,7 @@
               <label for="dropdownFormPassword">Password</label>
               <input type="password" class="form-control" name="credentials[password]" placeholder="password">
             </div>
-            <button type="submit" class="btn btn-primary" value="Sign in">Sign in</button>
+            <button type="submit" class="btn btn-sign" value="Sign in">Sign in</button>
           </form>
         </div>
 
@@ -70,14 +75,14 @@
               <label for="dropdownFormPassword">Password</label>
               <input type="password" class="form-control" name="passwords[new]" placeholder="New password">
             </div>
-            <button type="submit" class="btn btn-primary" value="Change Password">Change Password</button>
+            <button type="submit" class="btn btn-sign" value="Change Password">Change Password</button>
           </form>
         </div>
 
         <p id="signOutMessage"></p>
         <form id="sign-out" class="border justify-content-end">
             <fieldset>
-              <input type="submit" value="Sign out">
+              <input type="submit" class="btn btn-sign-out" value="Sign out">
             </fieldset>
           </form>
       </nav>
@@ -92,19 +97,19 @@
           <input type="text" name="hang[time]" placeholder="Hang Time">
           <input type="text" name="hang[location]" placeholder="Location">
           <input type="text" name="hang[description]" placeholder="Description">
-          <input type="submit" class="btn-gradient green normal" value="Add Hang!">
+          <input type="submit" class="btn btn-hang" value="Add Hang!">
         </fieldset>
 
         <!-- <button id="addHangButton" class="btn-gradient green normal"> Add Hang
         </button> -->
       </form>
 
-      <button id="show-hangs" type="button" class="btn btn-primary">Show All Hangs</button>
+      <button id="show-hangs" type="button" class="btn btn-hang">Show All Hangs</button>
 
-      <button id="show-my-hangs" type="button" class="btn btn-primary">Show My Hangs</button>
+      <button id="show-my-hangs" type="button" class="btn btn-hang">Show My Hangs</button>
       <main>
 
-          <!-- add hangs here -->
+          <!-- For Handlebars Template call -->
         <div id="content" class="content"></div>
       </main>
 

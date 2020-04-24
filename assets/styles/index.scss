@@ -1,1 +1,73 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  text-align: center;
+  background-color: #FAF0D3;
+  font-family: 'Quattrocento', serif;
+}
+
+.hang_title {
+  text-align: center;
+}
+
+#message {
+    font-size: 28px;
+    color: #6FA891;
+  }
+//  -------- Hang content styling ----
+.content {
+  max-width:80%;
+    max-height:800px;
+   margin:2rem auto;
+   padding:2rem;
+   border-radius:5px;
+  text-align: left;
+  font-weight: bold;
+  left: 10%;
+
+
+}
+
+.hang_section {
+  max-width:100%;
+    max-height:800px;
+   margin:2rem auto;
+   border:2px solid #357A74;
+   padding:2rem;
+   border-radius:5px;
+      @include make-row;
+  text-align: left;
+  font-weight: bold;
+  left: 10%;
+}
+
+//  ------- Button stuff ---
+.btn-hang {
+  background-color: #357A74;
+}
+
+.btn-hang:hover {
+  color: white;
+}
+.btn-sign-out {
+  background-color: #357A74;
+  position: absolute;
+  top: 0px;
+  right: 50px;
+}
+
+.btn-sign-out:hover {
+  color: white;
+}
+
+.dropdown-toggle {
+  background-color: #357A74;
+}
+
+.btn-sign {
+    background-color: #357A74;
+}
+
+.btn-sign:hover {
+  color:white;
+}

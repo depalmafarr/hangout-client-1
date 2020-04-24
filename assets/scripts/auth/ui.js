@@ -9,6 +9,11 @@ const onSignUpSucess = function (data) {
   // $('#sign-up').trigger('reset')
   // $('#sign-up')[0].reset()
   console.log('onSignUpSucess data is: ', data)
+  $('#message').show(2800)
+  $('#message').text('SIGNED IN')
+  $('#message').hide(2800)
+  $('#sign-up').closest('form').find('input[type=text], textarea').val('')
+  $('#sign-up').closest('form').find('input[type=password], textarea').val('')
 }
 
 const onSignUpFailure = function () {
@@ -18,6 +23,8 @@ const onSignUpFailure = function () {
   // $('#sign-up').trigger('reset')
   // $('#signInMessage').text('')
   console.log('onSignUpFailure data is: ')
+  $('#sign-up').closest('form').find('input[type=text], textarea').val('')
+  $('#sign-up').closest('form').find('input[type=password], textarea').val('')
 }
 
 const onSignInSucess = function (data) {
@@ -31,6 +38,11 @@ const onSignInSucess = function (data) {
   // $('#message').text('')
   // $('#sign-in').trigger('reset')
   console.log('onSignInSucess data is: ', data)
+  $('#message').show()
+  $('#message').text('SUCCESS')
+  $('#message').hide(2800)
+  $('#sign-in').closest('form').find('input[type=text], textarea').val('')
+$('#sign-in').closest('form').find('input[type=password], textarea').val('')
   store.user = data.user
 
 
@@ -43,6 +55,8 @@ const onSignInFailure = function () {
   // $('#signInMessage').addClass('failure')
   // $('#message').text('')
   console.log('onSignInFailure data is: ')
+  $('#sign-in').closest('form').find('input[type=text], textarea').val('')
+$('#sign-in').closest('form').find('input[type=password], textarea').val('')
 }
 
 const onChangePasswordSuccess = function (data) {
@@ -51,6 +65,8 @@ const onChangePasswordSuccess = function (data) {
   // $('#passwordChangeMessage').removeClass()
   // $('#signInMessage').text('')
   console.log('onChangePasswordSuccess data is: ', data)
+  $('#change-password').closest('form').find('input[type=text], textarea').val('')
+    $('#change-password').closest('form').find('input[type=password], textarea').val('')
 }
 
 const onChangePasswordFailure = function () {
@@ -60,6 +76,8 @@ const onChangePasswordFailure = function () {
   // $('#passwordChangeMessage').addClass('failure')
   // $('#signInMessage').text('')
   console.log('onChangePasswordFailure data is: ')
+  $('#change-password').closest('form').find('input[type=text], textarea').val('')
+    $('#change-password').closest('form').find('input[type=password], textarea').val('')
 }
 
 const onSignOutSuccess = function (data) {
@@ -74,6 +92,11 @@ const onSignOutSuccess = function (data) {
   // $('#passwordChangeMessage').text('')
   // $('.content').empty()
   console.log('onSignOutSuccess data is: ', data)
+  $('#message').show()
+  $('#message').text('SIGNED OUT')
+  $('#message').hide(3300)
+  $('#sign-out').closest('form').find('input[type=text], textarea').val('')
+  $('#sign-out').closest('form').find('input[type=password], textarea').val('')
 }
 
 const onSignOutFailure = function () {
@@ -84,6 +107,8 @@ const onSignOutFailure = function () {
   // $('#signInMessage').text('')
   // $('#passwordChangeMessage').text('')
   console.log('onSignOutFailure data is: ')
+  $('#sign-out').closest('form').find('input[type=text], textarea').val('')
+  $('#sign-out').closest('form').find('input[type=password], textarea').val('')
 }
 
 module.exports = {

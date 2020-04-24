@@ -5,8 +5,11 @@ const showHangsTemplate = require('../templates/hang-listing.handlebars')
 const showMyHangsTemplate = require('../templates/my-hang-listing.handlebars')
 
 const onNewHangSuccess = function (data) {
-  $('#message').show(800)
+  $('#message').show()
   $('#message').text('SUCCESS')
+    $('#message').hide(800)
+      $('#addHang').closest('form').find('input[type=text], textarea').val('')
+        $('#addHang').closest('form').find('input[type=date], textarea').val('')
   console.log('this is da data', data)
 }
 
@@ -61,6 +64,7 @@ const onShowMyHangsFailure = function (data) {
 const onDeleteHangfailure = function () {
   $('#message').show(800)
   $('#message').text('Failure to Delete Hang')
+    $('#message').hide(800)
 }
 
 const onUpdateHangSuccess = function () {
