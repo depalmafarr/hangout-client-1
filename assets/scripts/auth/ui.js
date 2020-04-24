@@ -10,7 +10,7 @@ const onSignUpSucess = function (data) {
   // $('#sign-up')[0].reset()
   console.log('onSignUpSucess data is: ', data)
   $('#message').show(2800)
-  $('#message').text('SIGNED IN')
+  $('#message').text('SIGNED UP!')
   $('#message').hide(2800)
   $('#sign-up').closest('form').find('input[type=text], textarea').val('')
   $('#sign-up').closest('form').find('input[type=password], textarea').val('')
