@@ -26,7 +26,7 @@ const onSignUpFailure = function () {
   // $('#signInMessage').text('')
   $('#message').show(2800)
   $('#message').text('Sign Up Error!')
-  $('#message').show(2800)
+  $('#message').hide(2800)
   console.log('onSignUpFailure data is: ')
   $('#sign-up').closest('form').find('input[type=text], textarea').val('')
   $('#sign-up').closest('form').find('input[type=password], textarea').val('')
@@ -141,7 +141,7 @@ const onSignOutFailure = function () {
   console.log('onSignOutFailure data is: ')
   $('#message').show(2800)
   $('#message').text('Sign Out Error!')
-  $('#message').show(2800)
+  $('#message').hide(2800)
   $('#sign-out').closest('form').find('input[type=text], textarea').val('')
   $('#sign-out').closest('form').find('input[type=password], textarea').val('')
 }
