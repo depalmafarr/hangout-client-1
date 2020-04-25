@@ -9,7 +9,7 @@ const showMyHangsTemplate = require('../templates/my-hang-listing.handlebars')
 
 // ---------- Creating a New Hang -------------
 const onNewHangSuccess = function (data) {
-  $('#message').show()
+  $('#message').show(800)
   $('#message').text('NEW HANG ADDED!')
     $('#message').hide(800)
       $('#addHang').closest('form').find('input[type=text], textarea').val('')
@@ -18,8 +18,9 @@ const onNewHangSuccess = function (data) {
 }
 
 const onNewHangFailure = function () {
-  $('#message').show()
+  $('#message').show(800)
   $('#message').text('FAILURE TO ADD NEW HANG!')
+  $('#message').hide(2800)
 }
 
 
@@ -32,6 +33,7 @@ const showHangsSuccess = function (data) {
   $('.content').html(showHangsHtml)
   $('#message').show(2800)
   $('#message').text('VIEWING ALL HANGS!')
+  $('#message').hide(2800)
   if (data.hangs.length === 0) {
     console.log('no events yet')
   } else {
@@ -43,6 +45,7 @@ const showHangsFailure = function (data) {
   console.log('showHangsFailure has been called')
   $('#message').show(2800)
   $('#message').text('THERE WAS AN ERROR!')
+  $('#message').hide(2800)
 }
 
 
@@ -71,12 +74,14 @@ const onShowMyHangsSuccess = function (data) {
   $('.content').show()
   $('#message').show(2800)
   $('#message').text('VIEW YOUR HANGS!')
+  $('#message').hide(2800)
 }
 
 const onShowMyHangsFailure = function (data) {
   console.log('ON SHOW MY HANGS FAILED, BRO')
   $('#message').show(800)
   $('#message').text('Failure to Show Your Hangs')
+  $('#message').hide(2800)
 }
 
 
@@ -103,12 +108,14 @@ const onUpdateHangSuccess = function () {
   console.log('onUpdateSuccess has been called')
   $('#message').show(2800)
   $('#message').text('HANG UPDATED!')
+  $('#message').hide(2800)
 }
 
 const onUpdateHangFailure = function () {
   console.log('onUpdateFailure has been called')
   $('#message').show(2800)
   $('#message').text('Failure to Update Hang!')
+  $('#message').hide(2800)
 }
 
 
