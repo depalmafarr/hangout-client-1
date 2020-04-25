@@ -4,20 +4,34 @@ const store = require('../store')
 const showHangsTemplate = require('../templates/hang-listing.handlebars')
 const showMyHangsTemplate = require('../templates/my-hang-listing.handlebars')
 
+
+
+
+// ---------- Creating a New Hang -------------
 const onNewHangSuccess = function (data) {
   $('#message').show()
-  $('#message').text('SUCCESS')
+  $('#message').text('NEW HANG ADDED!')
     $('#message').hide(800)
       $('#addHang').closest('form').find('input[type=text], textarea').val('')
         $('#addHang').closest('form').find('input[type=date], textarea').val('')
   console.log('this is da data', data)
 }
 
+const onNewHangFailure = function () {
+  $('#message').show()
+  $('#message').text('FAILURE TO ADD NEW HANG!')
+}
+
+
+
+
+// ---------- Showing All Hangs -------------
 const showHangsSuccess = function (data) {
   console.log('showHangsSuccess has been called')
   const showHangsHtml = showHangsTemplate({ hangs: data.hangs })
   $('.content').html(showHangsHtml)
-
+  $('#message').show(2800)
+  $('#message').text('VIEWING ALL HANGS!')
   if (data.hangs.length === 0) {
     console.log('no events yet')
   } else {
@@ -27,8 +41,14 @@ const showHangsSuccess = function (data) {
 
 const showHangsFailure = function (data) {
   console.log('showHangsFailure has been called')
+  $('#message').show(2800)
+  $('#message').text('THERE WAS AN ERROR!')
 }
 
+
+
+
+// ---------- Showing My Hangs -------------
 const onShowMyHangsSuccess = function (data) {
   // array of our hangs
   const hangsArray = data.hangs
@@ -48,35 +68,67 @@ const onShowMyHangsSuccess = function (data) {
   })
   const showMyHangsHtml = showMyHangsTemplate({ hangs: data.hangs })
   $('.content').html(showMyHangsHtml)
-}
-// ---------- RSVP -------------
-const rsvpHangSuccess = function (data) {
-data.hang.rsvp.push(store.user._id)
-console.log('DATA From rsvpHangSuccess', data.hang.rsvp)
-// console.log('USER', store.user._id)
-
+  $('.content').show()
+  $('#message').show(2800)
+  $('#message').text('VIEW YOUR HANGS!')
 }
 
 const onShowMyHangsFailure = function (data) {
   console.log('ON SHOW MY HANGS FAILED, BRO')
+  $('#message').show(800)
+  $('#message').text('Failure to Show Your Hangs')
+}
+
+
+
+
+// ---------- Deleting a Hang -------------
+const onDeleteHangSuccess = function () {
+  $('#message').show(800)
+  $('#message').text('Your Hang has been Deleted!')
+  $('#message').hide(800)
 }
 
 const onDeleteHangfailure = function () {
   $('#message').show(800)
   $('#message').text('Failure to Delete Hang')
-    $('#message').hide(800)
+  $('#message').hide(800)
 }
 
+
+
+
+// ---------- Updating a Hang -------------
 const onUpdateHangSuccess = function () {
   console.log('onUpdateSuccess has been called')
+  $('#message').show(2800)
+  $('#message').text('HANG UPDATED!')
+}
+
+const onUpdateHangFailure = function () {
+  console.log('onUpdateFailure has been called')
+  $('#message').show(2800)
+  $('#message').text('Failure to Update Hang!')
+}
+
+
+
+// ---------- RSVP -------------
+const rsvpHangSuccess = function (data) {
+data.hang.rsvp.push(store.user._id)
+console.log('DATA From rsvpHangSuccess', data.hang.rsvp)
+// console.log('USER', store.user._id)
 }
 
 module.exports = {
   showHangsSuccess,
   showHangsFailure,
   onNewHangSuccess,
+  onNewHangFailure,
+  onDeleteHangSuccess,
   onDeleteHangfailure,
   onUpdateHangSuccess,
+  onUpdateHangFailure,
   onShowMyHangsSuccess,
   onShowMyHangsFailure,
   rsvpHangSuccess
