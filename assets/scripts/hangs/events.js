@@ -3,7 +3,7 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields')
-
+const store = require('../store')
 
 
 // -------- Creating a Hang function -----------
@@ -64,8 +64,6 @@ const onUpdateHang = function (event) {
   // const data = store.day
   const id = $(event.target).data('id')
   const data = getFormFields(event.target)
-  console.log('in events.js, data is ', data)
-  console.log('in events.js, id is ', id)
   api.updateHang(data, id)
     .then(function () {
       onShowHangs(event)
@@ -79,14 +77,23 @@ const onUpdateHang = function (event) {
  // -------- RSVP to a Hang function -----------
 const onRsvp = function (event) {
   event.preventDefault()
-  // const data = store.day
+  const email = store.user.email
   const id = $(event.target).data('id')
-  const data = getFormFields(event.target)
-  console.log('ID is', id)
-    console.log('onRSVP data is', data)
-  api.rsvpHang(id)
+  api.rsvpHang(id, email)
     .then(ui.rsvpHangSuccess)
     .catch(ui.rsvpHangFailure)
+
+}
+
+
+//------- SHOW RSVP  ----
+const onShowRsvp = function (event) {
+  event.preventDefault()
+  // console.log('In events.js: onShowDays function has been called and ran')
+  api.showMyHangs()
+    .then(ui.onShowRsvp)
+    .catch(ui.onShowMyHangsFailure)
+
 
 }
 
@@ -101,6 +108,7 @@ const addHandlers = () => {
   $('.content').on('submit', '#updateButton', onUpdateHang)
 }
 
+
 module.exports = {
   onShowHangs,
   onNewHang,
@@ -108,5 +116,6 @@ module.exports = {
   onDeleteHang,
   onUpdateHang,
   onShowMyHangs,
-  onRsvp
+  onRsvp,
+  onShowRsvp
 }

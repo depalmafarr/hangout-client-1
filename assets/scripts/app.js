@@ -39,5 +39,9 @@ $(() => {
   // for creating new hangs
   $('#addHang').on('submit', hangEvents.onNewHang)
 
+  // Display RSVP
+    $('#rsvp-hangs').on('click', hangEvents.onShowRsvp)
+
+
   hangEvents.addHandlers()
 })

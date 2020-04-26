@@ -57,7 +57,7 @@ const deleteHang = function (id) {
 
 // -------- Show MY Hangs API Call -----------
 const updateHang = function (data, id) {
-  console.log('in api.js: updateHang function has been called, id is: ', id)
+
   return $.ajax({
     url: config.apiUrl + '/hangs/' + id,
     method: 'PATCH',
@@ -70,14 +70,15 @@ const updateHang = function (data, id) {
 
 
 // -------- RSVP API Call -----------
-const rsvpHang = function (id) {
+const rsvpHang = function (id, email) {
+  const rsvp = JSON.stringify(store.user.id)
   return $.ajax({
-    url: config.apiUrl + '/hangs/' + id,
-    method: 'GET',
+    url: config.apiUrl + '/rsvp/' + id,
+    method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-      data: id
+      data:  {"hang":{"rsvp": email}}
   })
 }
 

@@ -3,6 +3,7 @@
 const store = require('../store')
 const showHangsTemplate = require('../templates/hang-listing.handlebars')
 const showMyHangsTemplate = require('../templates/my-hang-listing.handlebars')
+const rsvpTemplate = require('../templates/rsvp-listing.handlebars')
 
 
 
@@ -14,13 +15,13 @@ const onNewHangSuccess = function (data) {
     $('#message').hide(800)
       $('#addHang').closest('form').find('input[type=text], textarea').val('')
         $('#addHang').closest('form').find('input[type=date], textarea').val('')
-  console.log('this is da data', data)
+
 }
 
 const onNewHangFailure = function () {
   $('#message').show(800)
   $('#message').text('FAILURE TO ADD NEW HANG!')
-  $('#message').hide(2800)
+  $('#message').hide(800)
 }
 
 
@@ -28,12 +29,13 @@ const onNewHangFailure = function () {
 
 // ---------- Showing All Hangs -------------
 const showHangsSuccess = function (data) {
-  console.log('showHangsSuccess has been called')
+
   const showHangsHtml = showHangsTemplate({ hangs: data.hangs })
   $('.content').html(showHangsHtml)
-  $('#message').show(2800)
+  $('#message').show(800)
   $('#message').text('VIEWING ALL HANGS!')
-  $('#message').hide(2800)
+  $('#message').hide(800)
+  $('.content').show()
   if (data.hangs.length === 0) {
     console.log('no events yet')
   } else {
@@ -42,10 +44,10 @@ const showHangsSuccess = function (data) {
 }
 
 const showHangsFailure = function (data) {
-  console.log('showHangsFailure has been called')
-  $('#message').show(2800)
+
+  $('#message').show(800)
   $('#message').text('THERE WAS AN ERROR!')
-  $('#message').hide(2800)
+  $('#message').hide(800)
 }
 
 
@@ -56,9 +58,8 @@ const onShowMyHangsSuccess = function (data) {
   // array of our hangs
   const hangsArray = data.hangs
 
-  // loo through the array of hangs
+  // loop through the array of hangs
   hangsArray.forEach((hang) => {
-    console.log('store.user.id is', store.user._id)
     // check if current user owns it or not
     // log hang.owner and sotre.user.id to make sure these are the right values to compare
     if (hang.owner === store.user._id) {
@@ -67,24 +68,57 @@ const onShowMyHangsSuccess = function (data) {
     } else {
       // else add currentUserOwns false
       hang.currentUserOwns = false
+
     }
   })
   const showMyHangsHtml = showMyHangsTemplate({ hangs: data.hangs })
   $('.content').html(showMyHangsHtml)
   $('.content').show()
-  $('#message').show(2800)
+  $('#message').show(800)
   $('#message').text('VIEW YOUR HANGS!')
-  $('#message').hide(2800)
+  $('#message').hide(800)
 }
 
 const onShowMyHangsFailure = function (data) {
-  console.log('ON SHOW MY HANGS FAILED, BRO')
+
   $('#message').show(800)
   $('#message').text('Failure to Show Your Hangs')
 }
 
 
+// -------- Showing RSVP ------
 
+const onShowRsvp = function (data) {
+  // array of our hangs
+  const rsvpArray = data.hangs
+console.log('in RSVP array', rsvpArray)
+  // loop through the array of hangs
+  rsvpArray.forEach((hang) => {
+    // check if current user owns it or not
+    // log hang.owner and sotre.user.id to make sure these are the right values to compare
+    hang.rsvp.forEach((rsvp) => {
+
+
+    console.log('ANYTHING1', rsvp)
+    if (store.user.email === rsvp.rsvp) {
+      // if the current user owns it then add currentUserOwns true
+      console.log('ANYTHING2', rsvp.rsvp)
+      hang.isGoing = true
+    } else {
+      // else add currentUserOwns false
+      rsvp.isGoing = false
+
+    }
+  })
+})
+  const showRsvp = rsvpTemplate ({ hangs: data.hangs })
+  $('.content').html(showRsvp)
+
+  $('.content').show()
+  $('#message').show(800)
+  $('#message').text('VIEW YOUR HANGS!')
+  $('#message').hide(800)
+}
 
 // ---------- Deleting a Hang -------------
 const onDeleteHangSuccess = function () {
@@ -104,26 +138,22 @@ const onDeleteHangfailure = function () {
 
 // ---------- Updating a Hang -------------
 const onUpdateHangSuccess = function () {
-  console.log('onUpdateSuccess has been called')
-  $('#message').show(2800)
+
+  $('#message').show(800)
   $('#message').text('HANG UPDATED!')
-  $('#message').hide(2800)
+  $('#message').hide(800)
 }
 
 const onUpdateHangFailure = function () {
-  console.log('onUpdateFailure has been called')
-  $('#message').show(2800)
+  $('#message').show(800)
   $('#message').text('Failure to Update Hang!')
-  $('#message').hide(2800)
+  $('#message').hide(800)
 }
 
 
 
 // ---------- RSVP -------------
 const rsvpHangSuccess = function (data) {
-data.hang.rsvp.push(store.user._id)
-console.log('DATA From rsvpHangSuccess', data.hang.rsvp)
-// console.log('USER', store.user._id)
 }
 
 module.exports = {
@@ -137,5 +167,6 @@ module.exports = {
   onUpdateHangFailure,
   onShowMyHangsSuccess,
   onShowMyHangsFailure,
-  rsvpHangSuccess
+  rsvpHangSuccess,
+  onShowRsvp
 }
