@@ -81,7 +81,6 @@ const onShowMyHangsFailure = function (data) {
   console.log('ON SHOW MY HANGS FAILED, BRO')
   $('#message').show(800)
   $('#message').text('Failure to Show Your Hangs')
-  $('#message').hide(2800)
 }
 
 
