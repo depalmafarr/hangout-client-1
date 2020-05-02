@@ -5,10 +5,9 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
-
- // -------- Creating a New Hang API Call -----------
+// -------- Creating a New Hang API Call -----------
 const newHang = function (data) {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: config.apiUrl + '/hangs',
     method: 'POST',
@@ -19,7 +18,6 @@ const newHang = function (data) {
   })
 }
 
-
 // -------- Show ALL Hangs API Call -----------
 const showHangs = function () {
   return $.ajax({
@@ -27,7 +25,6 @@ const showHangs = function () {
     method: 'GET'
   })
 }
-
 
 // -------- Show MY Hangs API Call -----------
 const showMyHangs = function () {
@@ -40,10 +37,9 @@ const showMyHangs = function () {
   })
 }
 
-
 // -------- Delete a Hang API Call -----------
 const deleteHang = function (id) {
-  console.log(id)
+  // console.log(id)
   return $.ajax({
     url: config.apiUrl + '/hangs/' + id,
     method: 'DELETE',
@@ -54,10 +50,8 @@ const deleteHang = function (id) {
   })
 }
 
-
 // -------- Show MY Hangs API Call -----------
 const updateHang = function (data, id) {
-
   return $.ajax({
     url: config.apiUrl + '/hangs/' + id,
     method: 'PATCH',
@@ -67,7 +61,6 @@ const updateHang = function (data, id) {
     data: data
   })
 }
-
 
 // -------- RSVP API Call -----------
 const rsvpHang = function (id, email) {
@@ -82,12 +75,11 @@ const rsvpHang = function (id, email) {
   })
 }
 
-
 module.exports = {
   showHangs,
   newHang,
   deleteHang,
   updateHang,
   showMyHangs,
-rsvpHang
+  rsvpHang
 }
