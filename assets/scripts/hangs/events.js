@@ -46,12 +46,12 @@ const onShowMyHangs = function (event) {
 
  // -------- Delete a Hang function -----------
 const onDeleteHang = function (event) {
-  console.log(event.target)
+  // console.log(event.target)
   const id = $(event.target).data('id')
   // console.log("WHO CARES!", id)
   api.deleteHang(id)
     .then(function () {
-      onShowHangs(event)
+      onShowMyHangs(event)
     })
     .catch(ui.onDeleteHangfailure)
 }
@@ -77,11 +77,16 @@ const onUpdateHang = function (event) {
  // -------- RSVP to a Hang function -----------
 const onRsvp = function (event) {
   event.preventDefault()
-  const email = store.user.email
-  const id = $(event.target).data('id')
-  api.rsvpHang(id, email)
-    .then(ui.rsvpHangSuccess)
-    .catch(ui.rsvpHangFailure)
+  // console.log('store.user.email', store.user)
+  if (store.user === undefined) {
+    return ui.rsvpHangFailure()
+  } else {
+    const email = store.user.email
+    const id = $(event.target).data('id')
+    api.rsvpHang(id, email)
+      .then(ui.rsvpHangSuccess)
+      .catch(ui.rsvpHangFailure)
+  }
 
 }
 
@@ -92,7 +97,7 @@ const onShowRsvp = function (event) {
   // console.log('In events.js: onShowDays function has been called and ran')
   api.showMyHangs()
     .then(ui.onShowRsvp)
-    .catch(ui.onShowMyHangsFailure)
+    .catch(ui.rsvpHangFailure)
 
 
 }
@@ -106,6 +111,9 @@ const addHandlers = () => {
   $('.content').on('click', '.btn-danger', onDeleteHang)
   $('.content').on('click', '.btn-rsvp', onRsvp)
   $('.content').on('submit', '#updateButton', onUpdateHang)
+  // $('.content').on('submit', '#rsvp-hangs', onUpdateHang)
+  // $('#rsvp-hangs').hide()
+
 }
 
 

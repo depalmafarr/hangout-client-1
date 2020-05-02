@@ -53,12 +53,12 @@
         <input type="text" name="hang[time]" value="{{hang.time}}" placeholder="4:00 PM">
         <input type="text" name="hang[location]" value="{{hang.location}}" placeholder="Boston, MA">
         <input type="text" name="hang[description]" value="{{hang.description}}" placeholder="What is happening at this event">
-        <input type="submit" value="Edit hang">
+        <input type="submit" class="btn-hang" value="Edit hang">
       </fieldset>
     </form>
 
     <button data-id="{{hang._id}}" class="btn btn-danger">Delete Hang!</button>
-    <button data-id="{{hang._id}}" class="btn btn-rsvp">RSVP</button>
+    <button data-id="{{hang._id}}" class="btn btn-rsvp btn-hang">RSVP</button>
 
   </section>
   {{/if}}

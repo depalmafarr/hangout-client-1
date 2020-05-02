@@ -58,7 +58,7 @@ const onSignInSucess = function (data) {
   $('#sign-out').show()
   $('#show-my-hangs').show()
   $('#addHang').show()
-
+  $('#rsvp-hangs').show()
 }
 
 const onSignInFailure = function () {
@@ -130,6 +130,8 @@ const onSignOutSuccess = function (data) {
   $('#show-my-hangs').hide()
   $('#addHang').hide()
   $('.content').hide()
+  $('#rsvp-hangs').hide()
+
 }
 
 const onSignOutFailure = function () {

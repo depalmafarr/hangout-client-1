@@ -10,18 +10,18 @@ const rsvpTemplate = require('../templates/rsvp-listing.handlebars')
 
 // ---------- Creating a New Hang -------------
 const onNewHangSuccess = function (data) {
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('NEW HANG ADDED!')
-    $('#message').hide(1300)
+    $('#message').hide(2200)
       $('#addHang').closest('form').find('input[type=text], textarea').val('')
         $('#addHang').closest('form').find('input[type=date], textarea').val('')
 
 }
 
 const onNewHangFailure = function () {
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('FAILURE TO ADD NEW HANG!')
-  $('#message').hide(1300)
+  $('#message').hide(2200)
   $('#addHang').closest('form').find('input[type=text], textarea').val('')
   $('#addHang').closest('form').find('input[type=date], textarea').val('')
 }
@@ -34,9 +34,9 @@ const showHangsSuccess = function (data) {
 
   const showHangsHtml = showHangsTemplate({ hangs: data.hangs })
   $('.content').html(showHangsHtml)
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('VIEWING ALL HANGS!')
-  $('#message').hide(1300)
+  $('#message').hide(2200)
   $('.content').show()
   if (data.hangs.length === 0) {
     console.log('no events yet')
@@ -47,9 +47,9 @@ const showHangsSuccess = function (data) {
 
 const showHangsFailure = function (data) {
 
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('THERE WAS AN ERROR!')
-  $('#message').hide(1300)
+  $('#message').hide(2200)
 }
 
 
@@ -76,14 +76,14 @@ const onShowMyHangsSuccess = function (data) {
   const showMyHangsHtml = showMyHangsTemplate({ hangs: data.hangs })
   $('.content').html(showMyHangsHtml)
   $('.content').show()
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('VIEW YOUR HANGS!')
-  $('#message').hide(1300)
+  $('#message').hide(2200)
 }
 
 const onShowMyHangsFailure = function (data) {
 
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('Failure to Show Your Hangs')
 }
 
@@ -116,22 +116,22 @@ console.log('in RSVP array', rsvpArray)
   $('.content').html(showRsvp)
 
   $('.content').show()
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('VIEW YOUR HANGS!')
-  $('#message').hide(1300)
+  $('#message').hide(2200)
 }
 
 // ---------- Deleting a Hang -------------
 const onDeleteHangSuccess = function () {
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('Your Hang has been Deleted!')
-  $('#message').hide(1300)
+  $('#message').hide(2200)
 }
 
 const onDeleteHangfailure = function () {
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('Failure to Delete Hang')
-  $('#message').hide(1300)
+  $('#message').hide(2200)
 }
 
 
@@ -140,21 +140,30 @@ const onDeleteHangfailure = function () {
 // ---------- Updating a Hang -------------
 const onUpdateHangSuccess = function () {
 
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('HANG UPDATED!')
-  $('#message').hide(1300)
+  $('#message').hide(2200)
 }
 
 const onUpdateHangFailure = function () {
-  $('#message').show(1300)
+  $('#message').show(2200)
   $('#message').text('Failure to Update Hang!')
-  $('#message').hide(1300)
+  $('#message').hide(2000)
 }
 
 
 
 // ---------- RSVP -------------
 const rsvpHangSuccess = function (data) {
+  // console.log('RSVP hang success bb')
+}
+
+const rsvpHangFailure = function (data) {
+  // console.log('RSVP hang fail bb')
+
+  $('#message').show(2200)
+  $('#message').text('You must sign in to use RSVP features')
+  $('#message').hide(2000)
 }
 
 module.exports = {
@@ -169,5 +178,6 @@ module.exports = {
   onShowMyHangsSuccess,
   onShowMyHangsFailure,
   rsvpHangSuccess,
-  onShowRsvp
+  onShowRsvp,
+  rsvpHangFailure
 }

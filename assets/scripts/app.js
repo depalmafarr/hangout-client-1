@@ -40,7 +40,9 @@ $(() => {
   $('#addHang').on('submit', hangEvents.onNewHang)
 
   // Display RSVP
-    $('#rsvp-hangs').on('click', hangEvents.onShowRsvp)
+  $('#rsvp-hangs').on('click', hangEvents.onShowRsvp)
+  $('#rsvp-hangs').hide()
+  // $('#rsvp').hide()
 
 
   hangEvents.addHandlers()
