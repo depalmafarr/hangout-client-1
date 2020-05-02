@@ -46,9 +46,9 @@ const onSignInSucess = function (data) {
   // $('#message').text('')
   // $('#sign-in').trigger('reset')
   console.log('onSignInSucess data is: ', data)
-  $('#message').show(800)
+  $('#message').fadeIn(800)
   $('#message').text('SIGNED IN!')
-  $('#message').hide(800)
+  $('#message').fadeOut(800)
   $('#sign-in').closest('form').find('input[type=text], textarea').val('')
   $('#sign-in').closest('form').find('input[type=password], textarea').val('')
   store.user = data.user

@@ -78,7 +78,7 @@ const rsvpHang = function (id, email) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-      data:  {"hang":{"rsvp": email}}
+    data:  {"hang":{"rsvp": email}}
   })
 }
 

@@ -35,20 +35,10 @@
 
     <hr>
     <hr>
-    <form id="updateButton" class="" data-id="{{hang._id}}">
-      <h3>Update Hang</h3>
-      <fieldset>
-        <input type="text" name="hang[title]" value="{{hang.title}}" placeholder="Title">
-        <input type="date" name="hang[date]" value="{{hang.date}}">
-        <input type="text" name="hang[time]" value="{{hang.time}}" placeholder="4:00 PM">
-        <input type="text" name="hang[location]" value="{{hang.location}}" placeholder="Boston, MA">
-        <input type="text" name="hang[description]" value="{{hang.description}}" placeholder="What is happening at this event">
-        <input type="submit" value="Edit hang">
-      </fieldset>
-    </form>
 
-    <button id="delete-hang" data-id="{{hang._id}}" class="btn btn-danger">Delete Hang!</button>
-    <button id="rsvp" data-id="{{hang._id}}" class="btn btn-rsvp">RSVP</button>
+
+
+    <button id="rsvp" data-id="{{hang._id}}" class="btn btn-rsvp btn-hang">RSVP</button>
 
   </section>
 
