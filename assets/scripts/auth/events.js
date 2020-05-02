@@ -5,7 +5,9 @@ const api = require('./api')
 const ui = require('./ui')
 // const store = require('../store')
 
-// create onSignUp function
+
+
+// -------- Sign Up  -----------
 const onSignUp = function (event) {
   event.preventDefault()
   // console.log('Signing up')
@@ -15,6 +17,9 @@ const onSignUp = function (event) {
     .catch(ui.onSignUpFailure)
 }
 
+
+
+// -------- Sign In  -----------
 // create onSignIn function
 const onSignIn = function (event) {
   event.preventDefault()
@@ -25,7 +30,9 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
 }
 
-// create onChangePassword function
+
+
+// -------- Change Password  -----------
 const onChangePassword = function (event) {
   event.preventDefault()
   // console.log('on password change')
@@ -35,7 +42,9 @@ const onChangePassword = function (event) {
     .catch(ui.onChangePasswordFailure)
 }
 
-// create onSignOut function
+
+
+// -------- Sign Out  -----------
 const onSignOut = function (event) {
   event.preventDefault()
   // console.log('on sign out')

@@ -9,20 +9,41 @@ const hangEvents = require('./hangs/events.js')
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  // User events set-up
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
 
+  // User event displays
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  // $('#sign-up').show()
+  // $('#sign-in').show()
+
+
   // for showing all hangs
   $('#show-hangs').on('click', hangEvents.onShowHangs)
+  $('#updatebutton').hide()
+  $('#sign-out').hide()
+  $('#rsvp').hide()
+  $('#delete-hang').hide()
+  $('#addHang').hide()
+
+
 
   // for showing "my hangs"
   $('#show-my-hangs').on('click', hangEvents.onShowMyHangs)
+  $('#show-my-hangs').hide()
 
   // for creating new hangs
   $('#addHang').on('submit', hangEvents.onNewHang)
+
+  // Display RSVP
+  $('#rsvp-hangs').on('click', hangEvents.onShowRsvp)
+  $('#rsvp-hangs').hide()
+  // $('#rsvp').hide()
+
 
   hangEvents.addHandlers()
 })

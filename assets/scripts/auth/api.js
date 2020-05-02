@@ -4,6 +4,9 @@ const config = require('../config')
 const store = require('../store')
 // const getFormFields = require('../../../lib/get-form-fields.js')
 
+
+
+// -------- Sign Up  -----------
 const signUp = function (data) {
   // console.log('In api.js')
   return $.ajax({
@@ -13,6 +16,9 @@ const signUp = function (data) {
   })
 }
 
+
+
+// -------- Sign In  -----------
 const signIn = function (data) {
   // console.log('In api.js')
   return $.ajax({
@@ -22,6 +28,9 @@ const signIn = function (data) {
   })
 }
 
+
+
+// -------- Change Password  -----------
 const changePassword = function (data) {
   // console.log('In api.js')
   return $.ajax({
@@ -34,6 +43,9 @@ const changePassword = function (data) {
   })
 }
 
+
+
+// -------- Sign Out  -----------
 const signOut = function () {
   // console.log('In api.js')
   return $.ajax({
@@ -44,6 +56,7 @@ const signOut = function () {
     }
   })
 }
+
 
 module.exports = {
   signUp,

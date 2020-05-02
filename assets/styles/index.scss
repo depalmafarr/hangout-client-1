@@ -1,9 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
+$button-colors: #357A74;
+$blanco: #fff;
+$backgrounds: #FAF0D3;
+$font-hang: 'Quattrocento', serif;
+
 body {
   text-align: center;
-  background-color: #FAF0D3;
-  font-family: 'Quattrocento', serif;
+  background-color: $backgrounds;
+  font-family: $font-hang;
 }
 
 .hang_title {
@@ -12,8 +17,10 @@ body {
 
 #message {
     font-size: 28px;
-    color: #6FA891;
+    color: $button-colors;
   }
+
+
 //  -------- Hang content styling ----
 .content {
   max-width:80%;
@@ -24,15 +31,13 @@ body {
   text-align: left;
   font-weight: bold;
   left: 10%;
-
-
 }
 
 .hang_section {
   max-width:100%;
     max-height:800px;
    margin:2rem auto;
-   border:2px solid #357A74;
+   border:2px solid $button-colors;
    padding:2rem;
    border-radius:5px;
       @include make-row;
@@ -43,31 +48,32 @@ body {
 
 //  ------- Button stuff ---
 .btn-hang {
-  background-color: #357A74;
+  background-color: $button-colors;
 }
 
 .btn-hang:hover {
-  color: white;
+  color: $blanco;
 }
+
 .btn-sign-out {
-  background-color: #357A74;
+  background-color: $button-colors;
   position: absolute;
   top: 0px;
   right: 50px;
 }
 
 .btn-sign-out:hover {
-  color: white;
+  color: $blanco;
 }
 
 .dropdown-toggle {
-  background-color: #357A74;
+  background-color: $button-colors;
 }
 
 .btn-sign {
-    background-color: #357A74;
+    background-color: $button-colors;
 }
 
 .btn-sign:hover {
-  color:white;
+  color: $blanco;
 }
