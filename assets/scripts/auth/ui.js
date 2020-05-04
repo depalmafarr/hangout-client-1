@@ -54,8 +54,9 @@ const onChangePasswordSuccess = function (data) {
   $('#message').text('PASSWORD CHANGED!')
   $('#message').hide(800)
   // console.log('onChangePasswordSuccess data is: ', data)
-  $('#change-password').closest('form').find('input[type=text], textarea').val('')
-  $('#change-password').closest('form').find('input[type=password], textarea').val('')
+  $('#change-password2').trigger('reset')
+  // $('#change-password').closest('form').find('input[type=password], textarea').val('')
+  // $('#change-password').closest('form').find('input[type=password], textarea').val('')
 }
 
 const onChangePasswordFailure = function () {
@@ -63,8 +64,9 @@ const onChangePasswordFailure = function () {
   $('#message').text('Password Change Error!')
   $('#message').show(800)
   // console.log('onChangePasswordFailure data is: ')
-  $('#change-password').closest('form').find('input[type=text], textarea').val('')
-  $('#change-password').closest('form').find('input[type=password], textarea').val('')
+  $('#change-password2').trigger('reset')
+  // $('#change-password').closest('form').find('input[type=password], textarea').val('')
+  // $('#change-password').closest('form').find('input[type=password], textarea').val('')
 }
 
 // -------- Sign Out -----------
