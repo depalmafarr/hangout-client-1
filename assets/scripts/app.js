@@ -29,12 +29,16 @@ $(() => {
   $('#rsvp').hide()
   $('#delete-hang').hide()
   $('#addHang').hide()
+  $('#show-hangs').hide()
 
 
 
   // for showing "my hangs"
   $('#show-my-hangs').on('click', hangEvents.onShowMyHangs)
   $('#show-my-hangs').hide()
+
+  // showing upcoming hangs_
+  $('#show-upcoming-hangs').on('click', hangEvents.onShowUpcomingHangs)
 
   // for creating new hangs
   $('#addHang').on('submit', hangEvents.onNewHang)

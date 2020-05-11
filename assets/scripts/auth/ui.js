@@ -37,6 +37,8 @@ const onSignInSucess = function (data) {
   $('#show-my-hangs').show()
   $('#addHang').show()
   $('#rsvp-hangs').show()
+  $('#show-hangs').show()
+  $('#show-upcoming-hangs').hide()
 }
 
 const onSignInFailure = function () {
@@ -78,11 +80,13 @@ const onSignOutSuccess = function (data) {
   $('.sign-up').show()
   $('.sign-in').show()
   $('#change-password').hide()
-  $('.sign-out').hide()
   $('#show-my-hangs').hide()
   $('#addHang').hide()
   $('.content').hide()
   $('#rsvp-hangs').hide()
+  $('#sign-out').hide()
+  $('#show-hangs').hide()
+  $('#show-upcoming-hangs').show()
 }
 
 const onSignOutFailure = function () {

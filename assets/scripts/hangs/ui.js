@@ -4,6 +4,7 @@ const store = require('../store')
 const showHangsTemplate = require('../templates/hang-listing.handlebars')
 const showMyHangsTemplate = require('../templates/my-hang-listing.handlebars')
 const rsvpTemplate = require('../templates/rsvp-listing.handlebars')
+const showUpcomingHangs = require('../templates/upcoming-hangs-listing.handlebars')
 
 // ---------- Creating a New Hang -------------
 const onNewHangSuccess = function (data) {
@@ -26,6 +27,21 @@ const onNewHangFailure = function () {
 const showHangsSuccess = function (data) {
   const showHangsHtml = showHangsTemplate({ hangs: data.hangs })
   $('.content').html(showHangsHtml)
+  $('#message').show(2200)
+  $('#message').text('VIEWING ALL HANGS!')
+  $('#message').hide(2200)
+  $('.content').show()
+  if (data.hangs.length === 0) {
+    // console.log('no events yet')
+  } else {
+    // console.log('here are all your events: ', data.hangs)
+  }
+}
+
+// ---------- Showing Upcoming Hangs -------------
+const showUpcomingHangsSuccess = function (data) {
+  const showUpcomingsHangsHtml = showUpcomingHangs({ hangs: data.hangs })
+  $('.content').html(showUpcomingsHangsHtml)
   $('#message').show(2200)
   $('#message').text('VIEWING ALL HANGS!')
   $('#message').hide(2200)
@@ -151,6 +167,7 @@ module.exports = {
   onUpdateHangFailure,
   onShowMyHangsSuccess,
   onShowMyHangsFailure,
+  showUpcomingHangsSuccess,
   rsvpHangSuccess,
   onShowRsvp,
   rsvpHangFailure
