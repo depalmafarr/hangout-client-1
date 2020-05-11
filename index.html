@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>LET'S HANG!</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Quattrocento:wght@700&display=swap');
+    </style>
+
+    <body>
+      <h1 class ="hang_title">Let's Hang!</h1>
+      <!-- MAILMAN MESSAGE CENTER -->
+    <p id="message" class="mailman"></p>
+
+      <nav class="navbar navbar-inverse justify-content-start align-items-center">
+        <div class="dropdown sign-up">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign up
+          </button>
+          <p id="message"></p>
+          <form id="sign-up" class="dropdown-menu p-4">
+            <div class="form-group">
+              <label for="dropdownFormUsername">Username</label>
+              <input type="text" class="form-control" name="credentials[email]" placeholder="example@email.com">
+            </div>
+            <div class="form-group">
+              <label for="dropdownFormPassword">Password</label>
+              <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="dropdownFormPassword">Confirm Password</label>
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            </div>
+            <button type="submit" class="btn btn-sign" value="Sign up">Sign up</button>
+          </form>
+        </div>
+
+        <div class="dropdown sign-in">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign in
+          </button>
+          <p id="signInMessage"></p>
+          <form id="sign-in" class="dropdown-menu p-4">
+            <div class="form-group">
+              <label for="dropdownFormUsername">Username</label>
+              <input type="text" class="form-control" id="dropdownFormUsername" name="credentials[email]" placeholder="username">
+            </div>
+            <div class="form-group">
+              <label for="dropdownFormPassword">Password</label>
+              <input type="password" class="form-control" name="credentials[password]" placeholder="password">
+            </div>
+            <button type="submit" class="btn btn-sign" value="Sign in">Sign in</button>
+          </form>
+        </div>
+
+        <div id="change-password" class="dropdown change-password">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Change Password
+          </button>
+          <p id="passwordChangeMessage"></p>
+          <form id="change-password2" class="dropdown-menu p-4">
+            <div class="form-group">
+              <label for="dropdownFormPassword">Password</label>
+              <input type="text" class="form-control" name="passwords[old]" placeholder="Old password">
+            </div>
+            <div class="form-group">
+              <label for="dropdownFormPassword">Password</label>
+              <input type="password" class="form-control" name="passwords[new]" placeholder="New password">
+            </div>
+            <button type="submit" class="btn btn-sign" value="Change Password">Change Password</button>
+          </form>
+        </div>
+        <div id="sign-out">
+          <p id="signOutMessage"></p>
+          <form id="sign-out" class="border justify-content-end">
+            <fieldset>
+              <input type="submit" class="btn btn-sign-out" value="Sign out">
+            </fieldset>
+          </form>
+        </div>
+      </nav>
+
+
+      <!-- FORM TO ADD HANG -->
+      <form id="addHang" class="addHang">
+        <fieldset>
+          <legend> Add Hang </legend>
+          <input type="text" name="hang[title]" placeholder="Hang Name">
+          <input type="date" name="hang[date]" placeholder="Hang Date">
+          <input type="text" name="hang[time]" placeholder="Hang Time">
+          <input type="text" name="hang[location]" placeholder="Location">
+          <input type="text" name="hang[description]" placeholder="Description">
+          <input type="submit" class="btn btn-hang" value="Add Hang!">
+        </fieldset>
+
+        <!-- <button id="addHangButton" class="btn-gradient green normal"> Add Hang
+        </button> -->
+      </form>
+
+      <button id="show-hangs" type="button" class="btn btn-hang">Show All Hangs</button>
+
+      <button id="show-upcoming-hangs" type="button" class="btn btn-hang">Show Upcoming Hangs</button>
+
+      <button id="show-my-hangs" type="button" class="btn btn-hang">Show My Hangs</button>
+
+      <button id="rsvp-hangs" type="button" class="btn btn-hang rsvp-show">RSVP'd Hangs</button>
+      <main>
+
+          <!-- For Handlebars Template call -->
+        <div id="content" class="content"></div>
+      </main>
+
+    </body>
+</html>
